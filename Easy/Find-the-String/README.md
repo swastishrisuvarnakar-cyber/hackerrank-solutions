@@ -3,14 +3,14 @@ Problem Statement : The user enters a string and a substring. You have to print 
 
 ## Concept I Learned  :
 
-1.Strip()  function – it is used to remove the starting and trailing whitespaces or specific character 
-Their types – 1. Rstrip() - removes from right side  2. Lstrip()– removes from left side
-2. range function of for loop 
-3. I understood the reason behind the generation of String index out of range error
-4. the concept of String Slicing
+1.	Strip()  function – it is used to remove the starting and trailing whitespaces or specific character Their types – 1. Rstrip() - removes from right side  2. Lstrip()– removes from left side
+     2. Range function of for loop 
+     3. I understood the reason behind the generation of String index out of range      error       
+     4. The concept of String Slicing
 
 ## Solution:
-'''
+```
+python
 def count_substring(string, sub_string):
     count = 0
     i = 0
@@ -27,21 +27,21 @@ string = input("enter:").strip()
 substring = input("enter:").strip()
 count = count_substring(string, substring)
 print(count)
-'''
+```
 ## Initial Approaches:
-'''
+```
 1.	if(string[i]==substring[0]):
             if(string[i+1]==substring[1]):
                 if(string[i+2]==substring[2]):
                                count+=1
+```
 
 here I was trying to compare every character of the main string with the substring first character and if it match then it moves to match next character 
 but here I got an error regarding String Index out of range 
 to solve that I used the second approach
-'''
 
 2.
-'''
+```
     length = len(string) - len(substring)
     length = length+1
 
@@ -52,14 +52,13 @@ to solve that I used the second approach
                 if(string[i+2]==substring[2]):
                     count+=1
     i +=1
-  '''
-
-    here by subtracting the length of substring from the main string and by adding 1 to it I got the exact length I needed 
+```
+here by subtracting the length of substring from the main string and by adding 1 to it I got the exact length I needed 
 how :
 ex:
 main _string = abcdcdc   length = 7
 substring = cdc    length = 3
-actually length calculated = 7-3 = 4
+actual length calculated = 7-3 = 4
 
 Here's why I thought this way :
 because in the earlier approach I was getting an error whenever the program reach to the last index after that when we do i+1 there was nothing in the string that’s why  I was getting the string index out of range error.
@@ -69,11 +68,10 @@ That was because when I will run the for loop so the range function actually tak
 So I added 1 to the length so that it will stop at exact length we want
 But this approach was not enough because it is not applicable for every input given because current program consider that the length of substring is only 3 but it could be different to solve this I used the another approach which actually succeed
 
-
 ## The Final Successful Approach:
-'''
+```
   if(string[i:i+ sub_len] ==sub_string):
-  '''
+```
 I have used the concept of string slicing here to access the proper index
 main _string = abcdcdc   substring = cdc    	
 consider this input 
